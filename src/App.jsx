@@ -1,9 +1,4 @@
-import {
-  Link,
-  Route,
-  Routes,
-  useNavigate,
-} from "react-router-dom";
+import { Link, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Diary from "./pages/Diary";
@@ -48,15 +43,11 @@ function reducer(state, action) {
     }
     case "UPDATE": {
       return state.map((item) =>
-        String(item.id) === String(action.data.id)
-          ? action.data
-          : item
+        String(item.id) === String(action.data.id) ? action.data : item
       );
     }
     case "DELETE": {
-      return state.filter(
-        (item) => item.id !== action.targetId
-      );
+      return state.filter((item) => item.id !== action.targetId);
     }
   }
 }
@@ -69,11 +60,7 @@ function App() {
   const idRef = useRef(4);
 
   // 새로운 일기 추가
-  const onCreate = ({
-    createdDate,
-    emotionId,
-    content,
-  }) => {
+  const onCreate = ({ createdDate, emotionId, content }) => {
     //새로운 일기를 추가하는 기능
     dispatch({
       type: "CREATE",
@@ -87,12 +74,7 @@ function App() {
   };
 
   // 기존 일기 수정
-  const onUpdate = ({
-    id,
-    createdDate,
-    emotionId,
-    content,
-  }) => {
+  const onUpdate = ({ id, createdDate, emotionId, content }) => {
     dispatch({
       type: "UPDATE",
       data: {
@@ -114,9 +96,7 @@ function App() {
   return (
     <>
       <DiaryStateContext.Provider value={data}>
-        <DiaryDispatchContext.Provider
-          value={{ onCreate, onDelete, onUpdate }}
-        >
+        <DiaryDispatchContext.Provider value={{ onCreate, onDelete, onUpdate }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/new" element={<New />} />

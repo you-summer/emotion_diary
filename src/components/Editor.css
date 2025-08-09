@@ -1,0 +1,32 @@
+.Editor {
+  margin-bottom: 40px;
+}
+
+.emotion_list_wrapper {
+  display: flex;
+}
+
+.Editor > section > input,
+textarea {
+  border-radius: 5px;
+  border: none;
+  background-color: rgb(246, 246, 246);
+  padding: 10px 20px;
+  font-size: 15px;
+}
+
+.Editor > section > textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  resize: vertical;
+  min-height: 200px;
+}
+
+.Editor .button_section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Editor .content_section {
+}

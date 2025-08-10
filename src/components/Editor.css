@@ -30,3 +30,12 @@ textarea {
 
 .Editor .content_section {
 }
+
+.Editor .emotion_0 {
+  font-size: 11px;
+  color: red;
+}
+
+/* .Editor > section > h4 {
+  display: flex;
+} */

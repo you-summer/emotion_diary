@@ -15,6 +15,7 @@ const New = () => {
       createdDate: input.createdDate.getTime(),
       content: input.content,
     });
+    nav("/", { replace: true });
   };
   return (
     <div>

@@ -47,7 +47,9 @@ function reducer(state, action) {
       );
     }
     case "DELETE": {
-      return state.filter((item) => item.id !== action.targetId);
+      return state.filter(
+        (item) => String(item.id) !== String(action.targetId)
+      );
     }
   }
 }
@@ -88,6 +90,7 @@ function App() {
 
   // 기존 일기 삭제
   const onDelete = ({ targetId }) => {
+    console.log("넘어옴?", targetId);
     dispatch({
       type: "DELETE",
       targetId: targetId,

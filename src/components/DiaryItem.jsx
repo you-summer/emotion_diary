@@ -3,7 +3,7 @@ import { getEmotionImage } from "../util/get-emotion-image.js";
 import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 
-const DiaryItem = ({ id, emotionId, content, createdDate }) => {
+const DiaryItem = ({ id, emotionId, content, createdDate, img }) => {
   const nav = useNavigate();
 
   return (

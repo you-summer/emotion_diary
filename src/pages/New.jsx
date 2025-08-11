@@ -14,6 +14,7 @@ const New = () => {
       emotionId: input.emotionId,
       createdDate: input.createdDate.getTime(),
       content: input.content,
+      img: input.img,
     });
     nav("/", { replace: true });
   };

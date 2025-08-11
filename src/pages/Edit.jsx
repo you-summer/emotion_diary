@@ -22,7 +22,7 @@ const Edit = () => {
     const result = await Swal.fire({
       title: "정말 수정하시겠습니까?",
       showCancelButton: true,
-      confirmButtonColor: "rgb(100, 201, 100)",
+      confirmButtonColor: "rgb(254, 223, 4)",
       cancelButtonColor: "rgb(176, 176, 176)",
       confirmButtonText: "수정하기",
       cancelButtonText: "취소하기",
@@ -33,7 +33,7 @@ const Edit = () => {
       const resultIsConfirmed = await Swal.fire({
         title: "수정 완료!",
         text: "수정이 완료되었습니다",
-        confirmButtonColor: "rgb(100, 201, 100)",
+        confirmButtonColor: "rgb(254, 223, 4)",
         showClass: { popup: "" }, // 애니메이션 제거
         hideClass: { popup: "" },
       });
@@ -44,6 +44,7 @@ const Edit = () => {
           emotionId: input.emotionId,
           content: input.content,
           createdDate: input.createdDate.getTime(),
+          img: input.img,
         });
         nav("/", { replace: true });
       }
@@ -69,7 +70,7 @@ const Edit = () => {
         title: "삭제완료!",
         text: "일기가 삭제되었습니다",
         confirmButtonText: "확인",
-        confirmButtonColor: "rgb(100, 201, 100)",
+        confirmButtonColor: "rgb(254, 223, 4)",
         showClass: { popup: "" }, // 애니메이션 제거
         hideClass: { popup: "" },
       });

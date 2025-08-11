@@ -2,7 +2,7 @@ import "./Viewer.css";
 import { getEmotionImage } from "../util/get-emotion-image.js";
 import { emotionList } from "../util/constans.js";
 
-const Viewer = ({ emotionId, content }) => {
+const Viewer = ({ emotionId, content, img }) => {
   const emotionItem = emotionList.find((item) => {
     return item.emotionId === emotionId;
   });
@@ -14,6 +14,7 @@ const Viewer = ({ emotionId, content }) => {
         <div className="emotion_img_wrapper">
           <img src={getEmotionImage(emotionId)} />
           <div>{emotionItem.emotionName}</div>
+          {!img ? "" : <img src={img} />}
         </div>
       </section>
       <section className="content_section">

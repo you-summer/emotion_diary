@@ -21,18 +21,21 @@ const mokData = [
     createdDate: new Date("2025-08-08").getTime(),
     emotionId: 1,
     content: "1오늘의일기",
+    img: "",
   },
   {
     id: 2,
     createdDate: new Date("2025-08-10").getTime(),
     emotionId: 2,
     content: "2오늘의일기",
+    img: "",
   },
   {
     id: 3,
     createdDate: new Date("2025-07-08").getTime(),
     emotionId: 3,
     content: "3오늘의일기",
+    img: "",
   },
 ];
 
@@ -62,8 +65,9 @@ function App() {
   const idRef = useRef(4);
 
   // 새로운 일기 추가
-  const onCreate = ({ createdDate, emotionId, content }) => {
+  const onCreate = ({ createdDate, emotionId, content, img }) => {
     //새로운 일기를 추가하는 기능
+    console.log("onCreate img:", img);
     dispatch({
       type: "CREATE",
       data: {
@@ -71,12 +75,13 @@ function App() {
         createdDate,
         emotionId,
         content,
+        img,
       },
     });
   };
 
   // 기존 일기 수정
-  const onUpdate = ({ id, createdDate, emotionId, content }) => {
+  const onUpdate = ({ id, createdDate, emotionId, content, img }) => {
     dispatch({
       type: "UPDATE",
       data: {
@@ -84,6 +89,7 @@ function App() {
         createdDate,
         emotionId,
         content,
+        img,
       },
     });
   };

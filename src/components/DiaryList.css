@@ -2,6 +2,12 @@
   margin: 20px 0px;
   display: flex;
   gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.DiaryList .menu_bar_select {
+  gap: 10px;
+  display: flex;
 }
 
 .DiaryList .menu_bar select {
@@ -10,10 +16,23 @@
   border-radius: 5px;
 
   padding: 10px 20px;
-  font-size: 18px;
+  font-size: 15px;
   cursor: pointer;
+  justify-content: flex-end;
 }
 
-.DiaryList .menu_bar button {
-  flex: 1;
+.DiaryList .Button_fixed {
+  position: fixed;
+  margin: 0 auto;
+  bottom: 20px;
+  right: 20px;
+  left: 20px;
+  z-index: 1000;
+
+  max-width: 600px;
+}
+
+.DiaryList .menu_bar .diary_length > span {
+  color: #fedf04;
+  font-size: 18px;
 }

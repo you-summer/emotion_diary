@@ -6,7 +6,7 @@
   display: flex;
 }
 
-.Editor > section > input,
+.Editor > section > div > input,
 textarea {
   border-radius: 5px;
   border: none;
@@ -39,3 +39,44 @@ textarea {
 /* .Editor > section > h4 {
   display: flex;
 } */
+
+.Editor .date_section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Editor .content_section_div > input {
+  display: none;
+}
+.Editor .content_section_div > label {
+  background-color: beige;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.Editor .content_title_section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Editor .content_section_img {
+  display: flex;
+  justify-content: center;
+}
+.Editor .image_preview {
+  width: 100%;
+  max-height: 300px;
+  height: auto;
+  width: auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.Editor .img_loading {
+  padding: 10px;
+  margin: 50px 0px;
+}

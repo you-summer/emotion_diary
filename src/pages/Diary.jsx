@@ -14,7 +14,7 @@ const Diary = () => {
     return <div>데이터 로딩중...</div>;
   }
 
-  const { createdDate, emotionId, content } = curDiaryItem;
+  const { createdDate, emotionId, content, img } = curDiaryItem;
   // getStringedDate(createdDate);
 
   return (
@@ -30,7 +30,7 @@ const Diary = () => {
         }
       />
 
-      <Viewer emotionId={emotionId} content={content} />
+      <Viewer emotionId={emotionId} content={content} img={img} />
     </div>
   );
 };

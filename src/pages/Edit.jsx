@@ -77,7 +77,7 @@ const Edit = () => {
 
       if (confirmedResult.isConfirmed) {
         onDelete({ targetId: params.id });
-        nav(-1, { replace: true });
+        nav("/", { replace: true });
       }
     }
   };

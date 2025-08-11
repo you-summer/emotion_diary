@@ -67,7 +67,7 @@ function App() {
   // 새로운 일기 추가
   const onCreate = ({ createdDate, emotionId, content, img }) => {
     //새로운 일기를 추가하는 기능
-    console.log("onCreate img:", img);
+
     dispatch({
       type: "CREATE",
       data: {

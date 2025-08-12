@@ -17,3 +17,12 @@
   color: white;
   background-color: #fedf04;
 }
+
+.Button_updel {
+  padding: 5px;
+}
+
+.Button_setting {
+  padding: 8px;
+  border-radius: 20px;
+}

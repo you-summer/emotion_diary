@@ -1,23 +1,45 @@
 .DiaryItem {
   display: flex;
-  gap: 15px;
-  justify-content: space-between;
+  /* gap: 15px; */
+  /* justify-content: space-between; */
+  flex-direction: column;
 
   padding: 15px 0px;
   border-bottom: 1px solid rgb(236, 236, 236);
 }
 
 .DiaryItem .img_section {
-  min-width: 120px;
+  min-width: 80px;
   height: 80px;
 
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   cursor: pointer;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.DiaryItem .img_section .thumbnailImg:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.DiaryItem .img_section .thumbnailImg {
+  display: block;
+  /* max-width: 120px; */
+  object-fit: cover;
+
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.DiaryItem .img_section .emotionImg {
+  /* max-width: 120px; */
+  height: auto;
+  border-radius: 10px;
 }
 
 .DiaryItem .info_section {
-  flex: 1;
   cursor: pointer;
 }
 
@@ -25,6 +47,59 @@
   font-weight: bold;
 }
 
-.DiaryItem .info_section .content {
+.DiaryItem .content {
   font-size: 15px;
+  cursor: pointer;
+}
+
+/* .DiaryItem .img_section_1 {
+  background-color: rgb(65, 185, 60);
+}
+
+.DiaryItem .img_section_2 {
+  background-color: rgb(133, 207, 77);
+}
+.DiaryItem .img_section_3 {
+  background-color: rgb(248, 165, 45);
+}
+.DiaryItem .img_section_4 {
+  background-color: rgb(240, 69, 39);
+}
+.DiaryItem .img_section_5 {
+  background-color: rgb(225, 32, 39);
+} */
+
+.DiaryItem .info_section_date_emotion {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.DiaryItem .emotion_Id {
+  width: 20px;
+  height: 20px;
+}
+
+.DiaryItem .content_section {
+  gap: 20px;
+  display: flex;
+}
+
+.DiaryItem .content_section .content {
+  padding: 5px;
+}
+
+.DiaryItem .title_section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.DiaryItem .content {
+  flex: 1;
+}
+
+.DiaryItem .button_section {
+  align-items: center;
+  display: flex;
+  gap: 5px;
 }

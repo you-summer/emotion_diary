@@ -8,13 +8,14 @@ import { DiaryStateContext } from "../App";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useDiary from "../hooks/useDiary";
+import useSweetAlertOnDelete from "../hooks/useSweetAlertOnDelete";
 
 const Edit = () => {
   const params = useParams();
   const nav = useNavigate();
-  const { onUpdate, onDelete } = useContext(DiaryDispatchContext);
+  const { onUpdate } = useContext(DiaryDispatchContext);
 
-  // const currentDiaryItem = getCurrentDiary();
+  const onClickDelete = useSweetAlertOnDelete();
 
   const curDiaryItem = useDiary(params.id);
 
@@ -51,37 +52,6 @@ const Edit = () => {
     }
   };
 
-  const onClickDelete = async () => {
-    console.log("삭제클릭", params.id);
-
-    //sweetAlert2 사용
-    const result = await Swal.fire({
-      title: "정말 삭제하시겠습니까?",
-      showCancelButton: true,
-      confirmButtonColor: "rgb(253, 86, 95)",
-      cancelButtonColor: "rgb(176, 176, 176)",
-      confirmButtonText: "삭제하기",
-      cancelButtonText: "취소하기",
-      showClass: { popup: "" }, // 애니메이션 제거
-      hideClass: { popup: "" },
-    });
-    if (result.isConfirmed) {
-      const confirmedResult = await Swal.fire({
-        title: "삭제완료!",
-        text: "일기가 삭제되었습니다",
-        confirmButtonText: "확인",
-        confirmButtonColor: "rgb(254, 223, 4)",
-        showClass: { popup: "" }, // 애니메이션 제거
-        hideClass: { popup: "" },
-      });
-
-      if (confirmedResult.isConfirmed) {
-        onDelete({ targetId: params.id });
-        nav("/", { replace: true });
-      }
-    }
-  };
-
   return (
     <div>
       <Header
@@ -95,7 +65,11 @@ const Edit = () => {
           />
         }
         rightChild={
-          <Button text={"삭제하기"} type={"NEGATIVE"} onClick={onClickDelete} />
+          <Button
+            text={"삭제하기"}
+            type={"NEGATIVE"}
+            onClick={() => onClickDelete(params.id)}
+          />
         }
       />
 

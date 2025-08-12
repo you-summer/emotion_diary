@@ -49,7 +49,8 @@ const Editor = ({ onSubmitInput, initData }) => {
     if (input.content === "") {
       textareaRef.current.focus();
       return;
-    } else if (input.emotionId === 0) {
+    }
+    if (input.emotionId === 0) {
       emotionRef.current.scrollIntoView({ behavior: "smooth" });
       return;
     }
@@ -57,11 +58,13 @@ const Editor = ({ onSubmitInput, initData }) => {
   };
 
   useEffect(() => {
+    console.log("이닛데이터", initData);
     if (initData) {
       setInput({
         ...initData,
         createdDate: new Date(Number(initData.createdDate)),
       });
+      setImageInput(initData.img);
     }
   }, [initData]);
 
@@ -74,6 +77,10 @@ const Editor = ({ onSubmitInput, initData }) => {
 
     const fileReader = new FileReader();
 
+    if (!imageFile) {
+      setImgLoading(false); // 스피너만 끄고 기존 이미지 유지
+      return;
+    }
     setImageInput(null);
     setImgLoading(true); //이미지 읽기 시작 로딩 true
 
@@ -89,7 +96,7 @@ const Editor = ({ onSubmitInput, initData }) => {
   return (
     <div className="Editor">
       <section className="date_section">
-        <h4>📆 오늘의 일기</h4>
+        <h4>📆 오늘은? </h4>
         <div className="date_section_div">
           <input
             type="date"
@@ -100,12 +107,10 @@ const Editor = ({ onSubmitInput, initData }) => {
         </div>
       </section>
       <section className="emotion_section">
-        <h4>
+        <h4 ref={emotionRef}>
           🙌 오늘의 감정
           {tryInput && input.emotionId === 0 ? (
-            <span ref={emotionRef} className="emotion_0">
-              * 감정을 선택해주세요!
-            </span>
+            <span className="emotion_0">* 감정을 선택해주세요!</span>
           ) : (
             ""
           )}

@@ -44,7 +44,7 @@ const DiaryList = ({ data }) => {
     <div className="DiaryList">
       <div className="menu_bar">
         <div className="diary_length">
-          📚 일기 <span>{String(sortedEmotionData.length)}</span> 개
+          📖 일기 <span>{String(sortedEmotionData.length)}</span> 개
         </div>
         <div className="menu_bar_select">
           <select onChange={onChnageSortType}>
@@ -75,6 +75,7 @@ const DiaryList = ({ data }) => {
           }}
           fixed={"fixed"}
         />
+        <Button text={"📊"} setting={"setting"} />
       </div>
     </div>
   );

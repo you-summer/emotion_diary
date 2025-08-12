@@ -10,21 +10,23 @@ const Viewer = ({ emotionId, content, img }) => {
   return (
     <div className="Viewer">
       <section className="img_section">
-        <h4>📖 오늘은?</h4>
+        <h4>
+          ✨ 오늘의 <span>기분 : {emotionItem.emotionName}</span>
+        </h4>
+        <div className="emotion_section">
+          <img src={getEmotionImage(emotionId)} />
+          {/* <div>{emotionItem.emotionName}</div> */}
+        </div>
       </section>
       <section>
         <div className="emotion_img_wrapper">
           {/* <img src={getEmotionImage(emotionId)} />
           <div>{emotionItem.emotionName}</div> */}
-          {!img ? "" : <img src={img} />}
+          {!img ? "" : <img src={img} className="imgView" />}
         </div>
       </section>
       <section className="content_section">
-        <h4>오늘의 일기</h4>
-        <div className="emotion_section">
-          <img src={getEmotionImage(emotionId)} />
-          <div>{emotionItem.emotionName}</div>
-        </div>
+        <h4>📖 오늘의 일기</h4>
         <div className="content_wrapper">
           <p>{content}</p>
         </div>

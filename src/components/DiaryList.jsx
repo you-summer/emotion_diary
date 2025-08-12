@@ -66,7 +66,7 @@ const DiaryList = ({ data }) => {
           return <DiaryItem key={item.id} {...item} />;
         })}
       </div>
-      <div className="menu_bar">
+      <div className="fixed_button">
         <Button
           type={"POSITIVE"}
           text={"새 일기 쓰기"}
@@ -75,7 +75,16 @@ const DiaryList = ({ data }) => {
           }}
           fixed={"fixed"}
         />
-        <Button text={"📊"} setting={"setting"} />
+        <div className="side_button">
+          <Button
+            text={"📊"}
+            setting={"setting"}
+            onClick={() => {
+              nav(`/stats`);
+            }}
+          />
+          <Button text={"🌙"} setting={"setting"} />
+        </div>
       </div>
     </div>
   );

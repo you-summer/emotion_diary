@@ -7,6 +7,7 @@ import Edit from "./pages/Edit";
 import NotFound from "./pages/NotFound";
 import { useReducer, useRef, createContext } from "react";
 import Stats from "./pages/Stats";
+import SideButton from "./components/SideButton";
 
 // 1. "/" : 모든 일기를 조회하는 Home 페이지
 // 2. "/new" : 새로운 일기를 작성하는 New 페이지
@@ -114,6 +115,7 @@ function App() {
           </Routes>
         </DiaryDispatchContext.Provider>
       </DiaryStateContext.Provider>
+      <SideButton />
     </>
   );
 }

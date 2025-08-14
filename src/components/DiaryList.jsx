@@ -76,8 +76,8 @@ const DiaryList = ({ data }) => {
           }}
           fixed={"fixed"}
         />
-        <SideButton />
       </div>
+      {/* <SideButton /> */}
     </div>
   );
 };

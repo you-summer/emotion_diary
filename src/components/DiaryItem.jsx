@@ -4,7 +4,6 @@ import Button from "./Button";
 import { useNavigate } from "react-router-dom";
 import { DiaryDispatchContext } from "../App.jsx";
 import { useContext } from "react";
-import Swal from "sweetalert2";
 import useSweetAlertOnDelete from "../hooks/useSweetAlertOnDelete.jsx";
 
 const DiaryItem = ({ id, emotionId, content, createdDate, img }) => {

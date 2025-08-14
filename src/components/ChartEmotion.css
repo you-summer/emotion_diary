@@ -1,0 +1,36 @@
+.chart_date_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 10px;
+  gap: 10px;
+}
+
+.chart_date_section .Button_setting {
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.ChartEmotion {
+  display: flex;
+  flex-direction: column;
+  /* gap: 20px; */
+}
+
+.ChartEmotion .chart_content {
+  display: flex;
+  justify-content: center;
+}
+
+.ChartEmotion .chart_content {
+  display: flex;
+  align-items: baseline;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.ChartEmotion .chart_content > span {
+  font-size: 25px;
+  font-weight: bold;
+  color: #ffc107;
+}

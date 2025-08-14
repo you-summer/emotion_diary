@@ -4,6 +4,7 @@ import DiaryItem from "./DiaryItem";
 import "./DiaryList.css";
 import { useNavigate } from "react-router-dom";
 import { emotionList } from "../util/constans";
+import SideButton from "./SideButton";
 
 const DiaryList = ({ data }) => {
   const nav = useNavigate();
@@ -75,16 +76,7 @@ const DiaryList = ({ data }) => {
           }}
           fixed={"fixed"}
         />
-        <div className="side_button">
-          <Button
-            text={"📊"}
-            setting={"setting"}
-            onClick={() => {
-              nav(`/stats`);
-            }}
-          />
-          <Button text={"🌙"} setting={"setting"} />
-        </div>
+        <SideButton />
       </div>
     </div>
   );

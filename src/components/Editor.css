@@ -21,6 +21,9 @@ textarea {
   padding: 20px;
   resize: vertical;
   min-height: 200px;
+
+  transition: background-color 0.3s ease;
+  transition: color 0.3 ease;
 }
 
 .Editor .button_section {
@@ -84,4 +87,15 @@ textarea {
 .Editor .emotion_section > h4 {
   display: flex;
   align-items: center;
+}
+
+.Editor .EditorDark > div > div > label > span {
+  color: black;
+}
+
+.Editor .EditorDark > textarea {
+  background-color: #333;
+  color: white;
+  transition: background-color 0.3s ease;
+  transition: color 0.3 ease;
 }

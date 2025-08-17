@@ -5,7 +5,7 @@ import Diary from "./pages/Diary";
 import New from "./pages/New";
 import Edit from "./pages/Edit";
 import NotFound from "./pages/NotFound";
-import { useReducer, useRef, createContext } from "react";
+import { useReducer, useRef, createContext, useState, useEffect } from "react";
 import Stats from "./pages/Stats";
 import SideButton from "./components/SideButton";
 
@@ -58,10 +58,18 @@ function reducer(state, action) {
 
 export const DiaryStateContext = createContext();
 export const DiaryDispatchContext = createContext();
+export const IsDarkContext = createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, mokData);
   const idRef = useRef(4);
+  const [isDark, setIsDark] = useState(false);
+
+  // 다크모드
+  const onClickDark = () => {
+    setIsDark(!isDark);
+    console.log(isDark);
+  };
 
   // 새로운 일기 추가
   const onCreate = ({ createdDate, emotionId, content, img }) => {
@@ -101,22 +109,35 @@ function App() {
       targetId: targetId,
     });
   };
+
+  useEffect(() => {
+    if (isDark) {
+      document.querySelector("body").classList.add("backGroundDark");
+      document.getElementById("root").classList.add("dark");
+    } else {
+      document.querySelector("body").classList.remove("backGroundDark");
+      document.getElementById("root").classList.remove("dark");
+    }
+  }, [isDark]);
+
   return (
-    <>
+    <IsDarkContext.Provider value={{ isDark, onClickDark }}>
       <DiaryStateContext.Provider value={data}>
         <DiaryDispatchContext.Provider value={{ onCreate, onDelete, onUpdate }}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/new" element={<New />} />
-            <Route path="/diary/:id" element={<Diary />} />
-            <Route path="/edit/:id" element={<Edit />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/stats" element={<Stats />} />
-          </Routes>
+          <div className={`App ${isDark ? "dark" : ""}`}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/new" element={<New />} />
+              <Route path="/diary/:id" element={<Diary />} />
+              <Route path="/edit/:id" element={<Edit />} />
+              <Route path="*" element={<NotFound />} />
+              <Route path="/stats" element={<Stats />} />
+            </Routes>
+          </div>
         </DiaryDispatchContext.Provider>
       </DiaryStateContext.Provider>
       <SideButton />
-    </>
+    </IsDarkContext.Provider>
   );
 }
 

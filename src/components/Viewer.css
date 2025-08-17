@@ -37,6 +37,9 @@
   word-break: keep-all;
   overflow-wrap: break-word;
   white-space: pre-wrap;
+
+  transition: background-color 0.3s ease;
+  transition: color 0.3 ease;
 }
 
 .Viewer .content_wrapper > p {
@@ -64,4 +67,10 @@
 
 .Viewer .imgView {
   max-width: 100%;
+}
+
+.Viewer .contentDark .content_wrapper {
+  background-color: #333;
+  transition: background-color 0.3s ease;
+  transition: color 0.3 ease;
 }

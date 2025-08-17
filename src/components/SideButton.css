@@ -9,3 +9,10 @@
   z-index: 1200;
   max-width: 40px;
 }
+
+@media screen and (max-width: 480px) {
+  .SideButton .side_button {
+    right: 70px;
+    flex-direction: row;
+  }
+}

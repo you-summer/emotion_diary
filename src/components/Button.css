@@ -8,6 +8,24 @@
   white-space: nowrap;
 }
 
+.Button_true {
+  background-color: #3e3e3e;
+  color: white;
+  transition: background-color 0.3s ease;
+  transition: color 0.3 ease;
+}
+
+.Button_false {
+  transition: background-color 0.3s ease;
+  transition: color 0.3 ease;
+}
+
+.Button_true.Button_POSITIVE {
+  color: black;
+  transition: background-color 0.3s ease;
+  transition: color 0.3 ease;
+}
+
 .Button_NEGATIVE {
   color: white;
   background-color: rgb(253, 86, 95);

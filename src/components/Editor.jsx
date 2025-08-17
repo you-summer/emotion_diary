@@ -3,14 +3,16 @@ import "./Editor.css";
 import { useNavigate } from "react-router-dom";
 import EmotionItem from "./EmotionItem";
 import { emotionList } from "../util/constans.js";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { getStringedDate } from "../util/get-stringed-date.js";
 import { MoonLoader } from "react-spinners";
+import { IsDarkContext } from "../App.jsx";
 
 const Editor = ({ onSubmitInput, initData }) => {
   const textareaRef = useRef();
   const emotionRef = useRef();
   const nav = useNavigate();
+  const { isDark } = useContext(IsDarkContext);
 
   const [tryInput, setTryInput] = useState(false);
   // 제출하기 버튼 눌렀을때의 상태를 관리하는 ustState
@@ -135,10 +137,10 @@ const Editor = ({ onSubmitInput, initData }) => {
           })}
         </div>
       </section>
-      <section className="content_section">
+      <section className={`content_section ${isDark ? "EditorDark" : ""}`}>
         <div className="content_title_section">
           <h4>📖 오늘의 일기</h4>
-          <div className="content_section_div">
+          <div className={`content_section_div`}>
             <label htmlFor="imgFile">
               <span>📂이미지 업로드하기</span>
             </label>

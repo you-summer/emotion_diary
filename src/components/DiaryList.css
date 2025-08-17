@@ -36,3 +36,13 @@
   color: #fedf04;
   font-size: 18px;
 }
+
+.DiaryList .list_wrapper {
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 480px) {
+  .DiaryList .list_wrapper {
+    padding-bottom: 80px;
+  }
+}

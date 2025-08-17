@@ -4,7 +4,6 @@ import DiaryItem from "./DiaryItem";
 import "./DiaryList.css";
 import { useNavigate } from "react-router-dom";
 import { emotionList } from "../util/constans";
-import SideButton from "./SideButton";
 
 const DiaryList = ({ data }) => {
   const nav = useNavigate();

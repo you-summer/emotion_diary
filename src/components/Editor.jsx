@@ -7,6 +7,7 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { getStringedDate } from "../util/get-stringed-date.js";
 import { MoonLoader } from "react-spinners";
 import { IsDarkContext } from "../App.jsx";
+import Swal from "sweetalert2";
 
 const Editor = ({ onSubmitInput, initData }) => {
   const textareaRef = useRef();
@@ -83,6 +84,14 @@ const Editor = ({ onSubmitInput, initData }) => {
       setImgLoading(false); // 스피너만 끄고 기존 이미지 유지
       return;
     }
+
+    const maxSizeMB = 10; // 최대 10mb
+    if (imageFile.size > maxSizeMB * 1024 * 1024) {
+      alert("10mb 이하의 이미지만 사용 가능합니다");
+      e.target.value = ""; //선택 초기화
+      return;
+    }
+
     setImageInput(null);
     setImgLoading(true); //이미지 읽기 시작 로딩 true
 

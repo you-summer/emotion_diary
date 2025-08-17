@@ -14,46 +14,57 @@ import SideButton from "./components/SideButton";
 // 3. "/diary" : 일기를 상세히 조회하는 Diary 페이지
 // 4. "/edit" : 일기를 수정하는 Edit 페이지
 
-const mokData = [
-  {
-    id: 1,
-    createdDate: new Date("2025-08-08").getTime(),
-    emotionId: 1,
-    content: "1오늘의일기",
-    img: "",
-  },
-  {
-    id: 2,
-    createdDate: new Date("2025-08-10").getTime(),
-    emotionId: 2,
-    content: "2오늘의일기",
-    img: "",
-  },
-  {
-    id: 3,
-    createdDate: new Date("2025-07-08").getTime(),
-    emotionId: 3,
-    content: "3오늘의일기",
-    img: "",
-  },
-];
+// const mokData = [
+//   {
+//     id: 1,
+//     createdDate: new Date("2025-08-08").getTime(),
+//     emotionId: 1,
+//     content: "1오늘의일기",
+//     img: "",
+//   },
+//   {
+//     id: 2,
+//     createdDate: new Date("2025-08-10").getTime(),
+//     emotionId: 2,
+//     content: "2오늘의일기",
+//     img: "",
+//   },
+//   {
+//     id: 3,
+//     createdDate: new Date("2025-07-08").getTime(),
+//     emotionId: 3,
+//     content: "3오늘의일기",
+//     img: "",
+//   },
+// ];
 
 function reducer(state, action) {
+  let nextState;
   switch (action.type) {
+    case "INIT": {
+      return action.data;
+    }
     case "CREATE": {
-      return [action.data, ...state];
+      nextState = [action.data, ...state];
+      break;
     }
     case "UPDATE": {
-      return state.map((item) =>
+      nextState = state.map((item) =>
         String(item.id) === String(action.data.id) ? action.data : item
       );
+      break;
     }
     case "DELETE": {
-      return state.filter(
+      nextState = state.filter(
         (item) => String(item.id) !== String(action.targetId)
       );
+      break;
     }
+    default:
+      return state;
   }
+  localStorage.setItem("diary", JSON.stringify(nextState));
+  return nextState;
 }
 
 export const DiaryStateContext = createContext();
@@ -61,9 +72,37 @@ export const DiaryDispatchContext = createContext();
 export const IsDarkContext = createContext();
 
 function App() {
-  const [data, dispatch] = useReducer(reducer, mokData);
-  const idRef = useRef(4);
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, dispatch] = useReducer(reducer, []);
+  const idRef = useRef(0);
   const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const storedData = localStorage.getItem("diary");
+    if (!storedData) {
+      return;
+    }
+    const parsedData = JSON.parse(storedData);
+    if (!Array.isArray(parsedData)) {
+      setIsLoading(false);
+      return;
+    }
+
+    let maxId = 0;
+    parsedData.forEach((item) => {
+      if (Number(item.id) > maxId) {
+        maxId = Number(item.id);
+      }
+    });
+
+    idRef.current = maxId + 1;
+
+    dispatch({
+      type: "INIT",
+      data: parsedData,
+    });
+    setIsLoading(false);
+  }, []);
 
   // 다크모드
   const onClickDark = () => {
@@ -119,6 +158,10 @@ function App() {
       document.getElementById("root").classList.remove("dark");
     }
   }, [isDark]);
+
+  if (isLoading) {
+    return <div>데이터 로딩중입니다...</div>;
+  }
 
   return (
     <IsDarkContext.Provider value={{ isDark, onClickDark }}>

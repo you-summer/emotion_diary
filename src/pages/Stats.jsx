@@ -3,11 +3,14 @@ import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 import ChartEmotion from "../components/ChartEmotion";
 import useMonthData from "../hooks/useMonthData";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Stats = () => {
   const nav = useNavigate();
 
   const { pivotDate, increaseDate, decreaseDate, monthlyData } = useMonthData();
+
+  usePageTitle("통계");
 
   return (
     <div>

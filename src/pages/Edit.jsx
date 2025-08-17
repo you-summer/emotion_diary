@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useDiary from "../hooks/useDiary";
 import useSweetAlertOnDelete from "../hooks/useSweetAlertOnDelete";
+import usePageTitle from "../hooks/usePageTitle";
 
 const Edit = () => {
   const params = useParams();
@@ -18,6 +19,8 @@ const Edit = () => {
   const onClickDelete = useSweetAlertOnDelete();
 
   const curDiaryItem = useDiary(params.id);
+
+  usePageTitle(`${params.id}번 일기 수정`);
 
   const onSubmit = async (input) => {
     const result = await Swal.fire({

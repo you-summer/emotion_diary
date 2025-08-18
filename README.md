@@ -54,14 +54,16 @@ My Diary는 단순한 텍스트 기록이 아니라, 사용자의 하루 감정�
 - React (create-react-app 기반)  
 - JavaScript (ES6+)  
 - CSS / SCSS  
-- Context API  
+- Context API
+- SweetAlert2   
 - localStorage  
 - Vercel
 
 ---
 
 ## ✨ 주요 기능
-- ✅ 일기 작성, 수정, 삭제  
+- ✅ 일기 작성, 수정, 삭제
+- ✅ sweetalert2로 알림창 구현
 - ✅ 이미지 첨부 가능  
 - ✅ 감정 선택 및 시각화  
 - ✅ 오늘 날짜 표시  

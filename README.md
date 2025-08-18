@@ -1,12 +1,93 @@
-# React + Vite
+# 📝 My Diary
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React로 만든 감성 일기 웹 애플리케이션입니다.  
+오늘 하루의 감정을 기록하고, 사진과 함께 저장할 수 있으며, 통계 기능을 통해 감정 변화를 확인할 수 있습니다.  
+로컬 스토리지를 이용해 새로고침 후에도 데이터가 유지됩니다.
 
-Currently, two official plugins are available:
+🟢 **배포된 웹사이트**: [https://mydiary-fawn.vercel.app/](https://mydiary-fawn.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 💻 미리보기
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 메인 화면
+![메인 화면](./images/main.png)
+
+### 일기 작성 화면
+![작성 화면](./images/write.png)
+
+### 통계 페이지
+![통계 화면](./images/stats.png)
+
+---
+
+## 📅 개발 기간
+2025.08.08 ~ 2025.08.18
+
+---
+
+## 🐣 My Diary
+*"오늘 하루의 나를 기록하다"*  
+
+소중한 하루를 글과 이미지로 기록하고, 감정을 시각적으로 확인할 수 있는 감성 일기 웹 앱입니다.
+
+---
+
+## 📌 프로젝트 개요
+My Diary는 단순한 텍스트 기록이 아니라, 사용자의 하루 감정을 사진, 이모지, 통계와 함께 시각화하여  
+일기를 쓰는 즐거움과 몰입감을 높이는 것을 목표로 했습니다.
+
+- 감정 선택 및 이미지 첨부  
+- 감정 통계 확인  
+- 다크 모드 전환 기능  
+
+---
+
+## 🎯 기획 의도
+매일 반복되는 일기 작성이 지루할 수 있어, 감정과 시각 요소를 더하여 기록하는 재미를 주고자 했습니다.  
+사용자가 하루를 기록할 때마다 자신의 감정을 시각적으로 확인할 수 있습니다.
+
+---
+
+## 🛠️ 사용 기술
+- React (create-react-app 기반)  
+- JavaScript (ES6+)  
+- CSS / SCSS  
+- Context API  
+- localStorage  
+- Vercel
+
+---
+
+## ✨ 주요 기능
+- ✅ 일기 작성, 수정, 삭제  
+- ✅ 이미지 첨부 가능  
+- ✅ 감정 선택 및 시각화  
+- ✅ 오늘 날짜 표시  
+- ✅ 로컬 스토리지 저장  
+- ✅ 다크 모드 (아이콘: 🌙 / ☀️)  
+- ✅ 감정 통계 / 월별 통계 페이지  
+
+---
+
+## 💭 느낀점
+일기 웹사이트를 만들면서 단순히 글을 저장하는 것 이상으로,  
+사용자의 감정을 시각화하고, 날씨나 주소 등 실시간 정보를 반영하는 경험을 쌓을 수 있었습니다.  
+여러 기능을 직접 구현하면서 작은 문제들도 스스로 해결하는 과정이 굉장히 도움이 되었고,  
+React와 웹 개발에 더 익숙해질 수 있었습니다.
+
+---
+
+## 🙋‍♀️ 진행하면서 고민했던 것들
+- 이미지 파일 업로드를 로컬 스토리지에서 어떻게 관리할까?  
+- 감정 통계를 어떻게 시각화할까?  
+- 다크 모드를 어디서, 어떻게 상태로 관리할까?  
+- 컴포넌트 구조를 이렇게 나누는 게 최적일까?  
+
+하나씩 고민하고 구현하면서, 단순 기능도 직접 만들면 훨씬 많은 걸 배울 수 있다는 걸 느꼈습니다.
+
+---
+
+## 🙋‍♀️ 만든 사람
+- 이름: 조연정  
+- 블로그: [https://blog.naver.com/jojoor201/223943459591](https://blog.naver.com/jojoor201/223943459591)

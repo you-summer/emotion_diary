@@ -11,7 +11,10 @@ React로 만든 감성 일기 웹 애플리케이션입니다.
 ## 💻 미리보기
 
 ### 메인 화면
-![메인 화면](./images/main.png)
+![메인 화면](<img width="951" height="1078" alt="image" src="https://github.com/user-attachments/assets/1f348596-e42d-41a5-861c-de3e28b59cfa" />
+)
+-[감정 필터링 가능](<img width="923" height="856" alt="image" src="https://github.com/user-attachments/assets/40bed6d7-8631-4b1b-a2c1-4a8732f47ecc" />)
+
 
 ### 일기 작성 화면
 ![작성 화면](./images/write.png)

@@ -18,10 +18,13 @@ React로 만든 감성 일기 웹 애플리케이션입니다.
 
 
 ### 일기 작성 화면
-![작성 화면](./images/write.png)
+<img width="1120" height="1305" alt="새-일기-쓰기" src="https://github.com/user-attachments/assets/73715f45-095e-4a16-a3d7-2dc953a04a11" />
 
 ### 통계 페이지
-![통계 화면](./images/stats.png)
+<img width="1120" height="868" alt="통계" src="https://github.com/user-attachments/assets/1e389936-b13f-419a-a8b0-55e55d4e8de1" />
+
+### 일기 페이지
+<img width="1120" height="963" alt="3번째-일기" src="https://github.com/user-attachments/assets/c99d2389-b187-41a0-97e8-559ec521ee0b" />
 
 ---
 

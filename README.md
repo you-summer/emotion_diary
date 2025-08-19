@@ -30,6 +30,9 @@ React로 만든 감성 일기 웹 애플리케이션입니다.
 <img width="400" height="431" alt="my-diary" src="https://github.com/user-attachments/assets/267f3fba-3028-48ce-9ab7-c5890f535bc8" />
 <img width="460" height="381" alt="3번째-일기 (2)" src="https://github.com/user-attachments/assets/606d126e-5114-4880-9a5e-394f2644ed72" />
 
+### 모바일 반응형
+<img width="401" height="819" alt="my-diary (1)" src="https://github.com/user-attachments/assets/5d8d7ad8-1bc3-402e-8b17-5409b3acc24e" />
+
 
 ---
 
@@ -111,6 +114,9 @@ React와 웹 개발에 더 익숙해질 수 있었습니다.
 3. **개인적 느낀 점**  
    - base64로 로컬에 저장하던 방식은 구현이 간단했지만 용량 문제로 한계 발생  
       FormData 개념을 깊이 이해하게 됨
+     
+### ❗배포 후 무한로딩 문제
+
      
 - 감정 통계를 어떻게 시각화할까?  
 - 다크 모드를 어디서, 어떻게 상태로 관리할까?  

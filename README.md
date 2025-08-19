@@ -28,7 +28,7 @@ React로 만든 감성 일기 웹 애플리케이션입니다.
 
 ### 다크모드
 <img width="400" height="431" alt="my-diary" src="https://github.com/user-attachments/assets/267f3fba-3028-48ce-9ab7-c5890f535bc8" />
-<img width="560" height="481" alt="3번째-일기 (2)" src="https://github.com/user-attachments/assets/606d126e-5114-4880-9a5e-394f2644ed72" />
+<img width="460" height="381" alt="3번째-일기 (2)" src="https://github.com/user-attachments/assets/606d126e-5114-4880-9a5e-394f2644ed72" />
 
 
 ---

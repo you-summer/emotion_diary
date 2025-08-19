@@ -93,7 +93,7 @@ React와 웹 개발에 더 익숙해질 수 있었습니다.
 
 ## 🙋‍♀️ 트러블슈팅
 
-### Uncaught QuotaExceededError: 이미지 첨부 문제
+### ❗Uncaught QuotaExceededError: 이미지 첨부 문제
 블로그 주소 : https://blog.naver.com/jojoor201/223975638557
 1. **이미지 첨부 방식 문제**  
    - 처음에는 FileReader로 이미지를 base64로 변환 후 localStorage에 저장하려고 했음  

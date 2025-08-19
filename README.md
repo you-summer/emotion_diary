@@ -62,6 +62,7 @@ React로 만든 개인 감성 일기 웹앱입니다.
 - cloudinary
 - Vercel
 - Chart.js
+- React Router (페이지 전환 및 SPA 구현)
 
 ---
 

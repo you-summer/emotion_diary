@@ -7,7 +7,9 @@ import { useState, useRef, useEffect, useContext } from "react";
 import { getStringedDate } from "../util/get-stringed-date.js";
 import { MoonLoader } from "react-spinners";
 import { IsDarkContext } from "../App.jsx";
-import Swal from "sweetalert2";
+
+const CLOUD_NAME = "ds9vjbe25"; // Cloudinary 클라우드 이름
+const UPLOAD_PRESET = "diary_preset"; // Unsigned 업로드 프리셋
 
 const Editor = ({ onSubmitInput, initData }) => {
   const textareaRef = useRef();
@@ -71,37 +73,37 @@ const Editor = ({ onSubmitInput, initData }) => {
     }
   }, [initData]);
 
+  // cloudinary 사용
+  const uploadToCloudinary = async (file) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("upload_preset", UPLOAD_PRESET);
+
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+      { method: "POST", body: formData }
+    );
+    const data = await res.json();
+    console.log("이미지", data);
+    return data.secure_url; // 업로드 후 URL 반환
+  };
+
   //이미지추가
-  const onChangeImage = (e) => {
-    console.log(e.target.files[0]);
-
+  const onChangeImage = async (e) => {
     const imageFile = e.target.files[0];
-    // const name = e.target.name;
-
-    const fileReader = new FileReader();
 
     if (!imageFile) {
       setImgLoading(false); // 스피너만 끄고 기존 이미지 유지
       return;
     }
-
-    const maxSizeMB = 10; // 최대 10mb
-    if (imageFile.size > maxSizeMB * 1024 * 1024) {
-      alert("10mb 이하의 이미지만 사용 가능합니다");
-      e.target.value = ""; //선택 초기화
-      return;
-    }
-
     setImageInput(null);
     setImgLoading(true); //이미지 읽기 시작 로딩 true
 
-    fileReader.onload = () => {
-      let value = fileReader.result;
-      setInput({ ...input, img: value });
-      setImageInput(value); // 읽은 내용을 state에 저장
-      setImgLoading(false);
-    };
-    fileReader.readAsDataURL(imageFile); // 파일을 base64 데이터 URL로 읽음
+    const url = await uploadToCloudinary(imageFile);
+    console.log("url", url);
+    setInput({ ...input, img: url });
+    setImageInput(url); // 읽은 내용을 state에 저장
+    setImgLoading(false);
   };
 
   return (

@@ -41,9 +41,6 @@ const Editor = ({ onSubmitInput, initData }) => {
     if (name === "createdDate") {
       value = new Date(e.target.value);
     }
-    // else if (name === "img") {
-    //   value = imageInput;
-    // }
 
     setInput({ ...input, [name]: value });
   };
@@ -79,13 +76,24 @@ const Editor = ({ onSubmitInput, initData }) => {
     formData.append("file", file);
     formData.append("upload_preset", UPLOAD_PRESET);
 
-    const res = await fetch(
-      `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
-      { method: "POST", body: formData }
-    );
-    const data = await res.json();
-    console.log("이미지", data);
-    return data.secure_url; // 업로드 후 URL 반환
+    try {
+      const res = await fetch(
+        `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`,
+        { method: "POST", body: formData }
+      );
+
+      if (!res.ok) {
+        throw new Error("업로드 실패" + res.status);
+      }
+
+      const data = await res.json();
+      console.log("res", res);
+      console.log("이미지", data);
+      return data.secure_url; // 업로드 후 URL 반환
+    } catch (error) {
+      console.error("cloudinary업로드에러 : ", error);
+      throw error;
+    }
   };
 
   //이미지추가
@@ -99,10 +107,15 @@ const Editor = ({ onSubmitInput, initData }) => {
     setImageInput(null);
     setImgLoading(true); //이미지 읽기 시작 로딩 true
 
-    const url = await uploadToCloudinary(imageFile);
-    console.log("url", url);
-    setInput({ ...input, img: url });
-    setImageInput(url); // 읽은 내용을 state에 저장
+    try {
+      const url = await uploadToCloudinary(imageFile);
+      console.log("url", url);
+      setInput({ ...input, img: url });
+      setImageInput(url); // 읽은 내용을 state에 저장
+    } catch (error) {
+      alert("이미지 업로드에 실패했습니다 다시 시도해주세요!");
+    }
+
     setImgLoading(false);
   };
 

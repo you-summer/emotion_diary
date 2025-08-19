@@ -4,7 +4,7 @@ React로 만든 감성 일기 웹 애플리케이션입니다.
 오늘 하루의 감정을 기록하고, 사진과 함께 저장할 수 있으며, 통계 기능을 통해 감정 변화를 확인할 수 있습니다.  
 로컬 스토리지를 이용해 새로고침 후에도 데이터가 유지됩니다.
 
-🟢 **배포된 웹사이트**: [https://mydiary-fawn.vercel.app/](https://mydiary-fawn.vercel.app/)
+🟢 **배포된 웹사이트**: [[https://mydiary-fawn.vercel.app/](https://mydiary-three.vercel.app/)]
 
 ---
 

@@ -1,4 +1,5 @@
 # 📝 My Diary
+<img width="1200" height="630" alt="KakaoTalk_20250818_022645228" src="https://github.com/user-attachments/assets/e81b93c6-da60-4588-b004-f8d2f3e78142" />
 
 React로 만든 개인 감성 일기 웹앱입니다.
 사진과 감정을 기록하고, 월별 감정 통계를 확인할 수 있습니다.

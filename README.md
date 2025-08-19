@@ -11,16 +11,17 @@ React로 만든 개인 감성 일기 웹앱입니다.
 ## 💻 미리보기
 
 ### 메인 화면
+감정 필터링, 일기 리스트 표시
 <img width="951" height="1078" alt="image" src="https://github.com/user-attachments/assets/1f348596-e42d-41a5-861c-de3e28b59cfa" />
-
--감정 필터링 가능
 <img width="923" height="856" alt="image" src="https://github.com/user-attachments/assets/40bed6d7-8631-4b1b-a2c1-4a8732f47ecc" />
 
 
 ### 일기 작성 화면
+이미지 업로드, 감정 선택, 미리보기 제공
 <img width="1120" height="1305" alt="새-일기-쓰기" src="https://github.com/user-attachments/assets/73715f45-095e-4a16-a3d7-2dc953a04a11" />
 
 ### 통계 페이지
+월별 감정 시각화 (Chart.js)
 <img width="1120" height="868" alt="통계" src="https://github.com/user-attachments/assets/1e389936-b13f-419a-a8b0-55e55d4e8de1" />
 
 ### 일기 페이지

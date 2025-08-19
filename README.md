@@ -91,8 +91,27 @@ React와 웹 개발에 더 익숙해질 수 있었습니다.
 
 ---
 
-## 🙋‍♀️ 진행하면서 고민했던 것들
-- 이미지 파일 업로드를 로컬 스토리지에서 어떻게 관리할까?  
+## 🙋‍♀️ 트러블슈팅
+
+### Uncaught QuotaExceededError: 이미지 첨부 문제
+블로그 주소 : https://blog.naver.com/jojoor201/223975638557
+1. **이미지 첨부 방식 문제**  
+   - 처음에는 FileReader로 이미지를 base64로 변환 후 localStorage에 저장하려고 했음  
+   - 개발 환경(localhost)에서는 잘 작동했지만, 배포 후에는 `QuotaExceededError` 발생  
+   - 원인: base64로 변환하면서 용량이 증가 → 브라우저 localStorage 5MB 제한 초과  
+
+2. **해결 방법 찾기**  
+   - 외부 이미지 호스팅 필요  
+   - Firebase Storage를 고려했지만, 무료 요금제(Spark)에서는 이미지 업로드 지원이 중단되어 사용 불가  
+   - 결국 **Cloudinary**를 선택  
+     - 브라우저에서 파일 선택 → fetch로 업로드 → URL 반환 → state에 저장 → 미리보기 제공  
+     - Unsigned Upload Preset 사용 (서버 없이 프론트 단독 프로젝트에서도 가능)  
+     - FormData 객체 활용 → 이미지와 텍스트 데이터를 함께 multipart/form-data 형식으로 전송  
+
+3. **개인적 느낀 점**  
+   - base64로 로컬에 저장하던 방식은 구현이 간단했지만 용량 문제로 한계 발생  
+      FormData 개념을 깊이 이해하게 됨
+     
 - 감정 통계를 어떻게 시각화할까?  
 - 다크 모드를 어디서, 어떻게 상태로 관리할까?  
 - 컴포넌트 구조를 이렇게 나누는 게 최적일까?  
